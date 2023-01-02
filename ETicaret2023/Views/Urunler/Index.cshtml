@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ETicaret2023.Models.Urunler>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAdi)
+        </th>
+        <th>
+            Ürün Resmi
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunAciklamasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UrunFiyati)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kategoriler.KategoriAdi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAdi)
+        </td>
+        <td>
+            <img src="~/Resim/@(item.UrunID).jfif" width="50" class="aw-zoom" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunAciklamasi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UrunFiyati)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kategoriler.KategoriAdi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UrunID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.UrunID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.UrunID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<style>
+    .aw-zoom {
+        position: relative;
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        -moz-transform: scale(1);
+        transition: all .3s ease-in;
+        -moz-transition: all .3s ease-in;
+        -webkit-transition: all .3s ease-in;
+        -ms-transition: all .3s ease-in;
+    }
+
+    .aw-zoom:hover {
+        z-index: 2;
+        -webkit-transform: scale(10);
+        -ms-transform: scale(10);
+        -moz-transform: scale(10);
+        transform: scale(10);
+    }
+
+</style>
