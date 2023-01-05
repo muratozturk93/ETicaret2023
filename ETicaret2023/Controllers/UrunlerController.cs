@@ -13,7 +13,7 @@ namespace ETicaret2023.Controllers
 {
     public class UrunlerController : Controller
     {
-        private ETicaretEntities db = new ETicaretEntities();
+        private ETicaretEntities1 db = new ETicaretEntities1();
 
         // GET: Urunler
         public ActionResult Index()

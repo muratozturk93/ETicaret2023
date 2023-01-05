@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Yeni Kayıt", "Create")
 </p>
 <table class="table">
     <tr>
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Kategoriler.KategoriAdi)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UrunID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UrunID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UrunID })
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.UrunID }, new { @class = "btn btn-success" }) 
+            @Html.ActionLink("Detaylar", "Details", new { id=item.UrunID }, new { @class = "btn btn-warning" }) 
+            @Html.ActionLink("Sil", "Delete", new { id=item.UrunID }, new { @class = "btn btn-danger" })
         </td>
     </tr>
 }
