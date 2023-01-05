@@ -112,6 +112,7 @@ namespace ETicaret2023.Controllers
 
         public ActionResult Hatali()
         {
+            ViewBag.Hata = Request.Form;
             return View();
         }
     }
