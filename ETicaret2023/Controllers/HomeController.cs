@@ -12,7 +12,7 @@ namespace ETicaret2023.Controllers
         ETicaretEntities1 db= new ETicaretEntities1();
         public ActionResult Index()
         {
-            ViewBag.Kategoriler=db.Kategoriler.ToList();
+            ViewBag.Kategoriler = db.Kategoriler.ToList();
             ViewBag.Urunler=db.Urunler.ToList();
             return View();
         }

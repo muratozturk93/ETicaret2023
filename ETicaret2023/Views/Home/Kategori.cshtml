@@ -17,7 +17,7 @@
             @foreach (var item in (List<Kategoriler>)ViewBag.Kategoriler)
             {
                 <li>
-                    @Html.ActionLink(item.KategoriAdi, "Kategori", new { id = item.KategoriID })
+                    @Html.ActionLink(item.KategoriAdi, "Kategori", new { id = item.KategoriID }, new {@class="btn btn-default"})<br /><br />
                 </li>
             }
         </ul>
@@ -27,17 +27,19 @@
         <div class="row">
             @foreach (var item in Model)
             {
-                <div class="col-md-4" style="border: 1px solid; width: 40%; height: 40%">
-                    <h5>@item.UrunAdi</h5>
-                    <img src="~/Resim/@(@item.UrunID+".jfif")" style="width:30%;height:30%" />
-
-                    <p>
-                        <a href="/Home/Urun/@item.UrunID" class="btn btn-success">
-                            Ürün Detay &raquo;
-                        </a>
-                        <span style="float:right;color:purple;font-size:medium">@item.UrunFiyati TL</span>
-                    </p>
-
+                <div class="col-sm-6 col-md-4" style="width: 40%; height: 40%">
+                    <div class="thumbnail">
+                        <h5>@item.UrunAdi</h5>
+                        <img src="~/Resim/@(@item.UrunID+".jfif")" style="width:30%;height:30%" />
+                    </div>
+                    <div style="border">
+                        <p>
+                            <a href="/Home/Urun/@item.UrunID" class="btn btn-success">
+                                Ürün Detay &raquo;
+                            </a>
+                            <span style="float:right;color:purple;font-size:medium">@item.UrunFiyati TL</span>
+                        </p>
+                    </div>
                     <div class="col-md-2">
 
                     </div>

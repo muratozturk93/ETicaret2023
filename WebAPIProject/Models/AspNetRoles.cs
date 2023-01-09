@@ -7,25 +7,23 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ETicaret2023.Models
+namespace WebAPIProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
-    public partial class Kategoriler
+    
+    public partial class AspNetRoles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Kategoriler()
+        public AspNetRoles()
         {
-            this.Urunler = new HashSet<Urunler>();
+            this.AspNetUsers = new HashSet<AspNetUsers>();
         }
     
-        public int KategoriID { get; set; }
-        [DisplayName("Kategori Adý")]
-        public string KategoriAdi { get; set; }
+        public string Id { get; set; }
+        public string Name { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Urunler> Urunler { get; set; }
+        public virtual ICollection<AspNetUsers> AspNetUsers { get; set; }
     }
 }

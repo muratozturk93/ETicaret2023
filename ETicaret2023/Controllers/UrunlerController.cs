@@ -5,21 +5,45 @@ using System.Data.Entity;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
 using System.Web;
 using System.Web.Mvc;
 using ETicaret2023.Models;
+using Newtonsoft.Json;
 
 namespace ETicaret2023.Controllers
 {
     public class UrunlerController : Controller
     {
         private ETicaretEntities1 db = new ETicaretEntities1();
+        HttpClient client= new HttpClient();
 
         // GET: Urunler
         public ActionResult Index()
         {
-            var urunler = db.Urunler.Include(u => u.Kategoriler);
-            return View(urunler.ToList());
+            //var urunler = db.Urunler.Include(u => u.Kategoriler);
+            //return View(urunler.ToList());
+
+            List<Urunler> urunler = null;
+            client.BaseAddress = new Uri("https://localhost:44341/api/");
+
+            var response = client.GetAsync("Urun");
+
+            response.Wait();
+            var result =response.Result;
+            if (result.IsSuccessStatusCode)
+            {
+                var data = result.Content.ReadAsStringAsync();
+                data.Wait();
+                urunler = JsonConvert.DeserializeObject<List<Urunler>>(data.Result);
+            }
+
+            for (int i = 0; i < urunler.Count; i++)
+            {
+                urunler[i].Kategoriler = db.Kategoriler.Find(urunler[i].KategoriID);
+            }
+            return View(urunler);
+
         }
 
         // GET: Urunler/Details/5

@@ -7,33 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ETicaret2023.Models
+namespace WebAPIProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-
-    public partial class Urunler
+    
+    public partial class Siparis
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Urunler()
+        public Siparis()
         {
-            this.Sepet = new HashSet<Sepet>();
             this.SiparisDetay = new HashSet<SiparisDetay>();
         }
     
-        public int UrunID { get; set; }
-        [DisplayName("Ürün Adý")]
-        public string UrunAdi { get; set; }
-        public int KategoriID { get; set; }
-        [DisplayName("Ürün Açýklamasý")]
-        public string UrunAciklamasi { get; set; }
-        [DisplayName("Ürün Fiyatý")]
-        public int UrunFiyati { get; set; }
+        public int SiparisID { get; set; }
+        public string KullaniciID { get; set; }
+        public string Ad { get; set; }
+        public string Soyad { get; set; }
+        public string Adres { get; set; }
+        public string Telefon { get; set; }
+        public string TCKimlikNo { get; set; }
+        public Nullable<System.DateTime> Tarih { get; set; }
     
-        public virtual Kategoriler Kategoriler { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sepet> Sepet { get; set; }
+        public virtual AspNetUsers AspNetUsers { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SiparisDetay> SiparisDetay { get; set; }
     }
